@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eaju.dao81.F554281Mapper" >
+  <resultMap id="81ResultMap" type="com.eaju.po.F554281" >
+    <id column="SON001" property="son001" jdbcType="DECIMAL" />
+    <id column="SOKCOO" property="sokcoo" jdbcType="OTHER" />
+    <id column="SODOCO" property="sodoco" jdbcType="DECIMAL" />
+    <id column="SODCTO" property="sodcto" jdbcType="OTHER" />
+    <result column="SO55SE" property="so55se" jdbcType="OTHER" />
+    <result column="SOCPN1" property="socpn1" jdbcType="OTHER" />
+    <result column="SOVR01" property="sovr01" jdbcType="OTHER" />
+    <result column="SO55LY" property="so55ly" jdbcType="OTHER" />
+    <result column="SODL01" property="sodl01" jdbcType="OTHER" />
+    <result column="SODL02" property="sodl02" jdbcType="OTHER" />
+    <result column="SODRQJ" property="sodrqj" jdbcType="DECIMAL" />
+    <result column="SODL24" property="sodl24" jdbcType="OTHER" />
+    <result column="SODC" property="sodc" jdbcType="OTHER" />
+    <result column="SOSTYE" property="sostye" jdbcType="OTHER" />
+    <result column="SOTYPT" property="sotypt" jdbcType="OTHER" />
+    <result column="SO55CY" property="so55cy" jdbcType="OTHER" />
+    <result column="SOALPH3" property="soalph3" jdbcType="OTHER" />
+    <result column="SOAAID" property="soaaid" jdbcType="DECIMAL" />
+    <result column="SODL03" property="sodl03" jdbcType="OTHER" />
+    <result column="SOTPUR" property="sotpur" jdbcType="OTHER" />
+    <result column="SOA" property="soa" jdbcType="OTHER" />
+    <result column="SOALPH" property="soalph" jdbcType="OTHER" />
+    <result column="SOPH1" property="soph1" jdbcType="OTHER" />
+    <result column="SOADDS" property="soadds" jdbcType="OTHER" />
+    <result column="SONAME" property="soname" jdbcType="OTHER" />
+    <result column="SOADDZ" property="soaddz" jdbcType="OTHER" />
+    <result column="SONAMEE" property="sonamee" jdbcType="OTHER" />
+    <result column="SOCOUN" property="socoun" jdbcType="OTHER" />
+    <result column="SONAMED" property="sonamed" jdbcType="OTHER" />
+    <result column="SOADD1" property="soadd1" jdbcType="OTHER" />
+    <result column="SOALPH2" property="soalph2" jdbcType="OTHER" />
+    <result column="SOPH2" property="soph2" jdbcType="OTHER" />
+    <result column="SOPH3" property="soph3" jdbcType="OTHER" />
+    <result column="SOELM01" property="soelm01" jdbcType="OTHER" />
+    <result column="SOWHO1" property="sowho1" jdbcType="OTHER" />
+    <result column="SOELM02" property="soelm02" jdbcType="OTHER" />
+    <result column="SOWHO2" property="sowho2" jdbcType="OTHER" />
+    <result column="SOELM03" property="soelm03" jdbcType="OTHER" />
+    <result column="SOWHO3" property="sowho3" jdbcType="OTHER" />
+    <result column="SOADD2" property="soadd2" jdbcType="OTHER" />
+    <result column="SOFIL2" property="sofil2" jdbcType="OTHER" />
+    <result column="SOFIL3" property="sofil3" jdbcType="OTHER" />
+    <result column="SOA105" property="soa105" jdbcType="OTHER" />
+    <result column="SOAA" property="soaa" jdbcType="DECIMAL" />
+    <result column="SOAEXP" property="soaexp" jdbcType="DECIMAL" />
+    <result column="SOA106" property="soa106" jdbcType="OTHER" />
+    <result column="SON002" property="son002" jdbcType="DECIMAL" />
+    <result column="SOSRS2" property="sosrs2" jdbcType="OTHER" />
+    <result column="SOEDSP" property="soedsp" jdbcType="OTHER" />
+    <result column="SOMGTX" property="somgtx" jdbcType="OTHER" />
+    <result column="SOD200" property="sod200" jdbcType="OTHER" />
+    <result column="SOUSER" property="souser" jdbcType="OTHER" />
+    <result column="SOPID" property="sopid" jdbcType="OTHER" />
+    <result column="SOUPMJ" property="soupmj" jdbcType="DECIMAL" />
+    <result column="SOUPMT" property="soupmt" jdbcType="DECIMAL" />
+    <result column="SODL20" property="sodl20" jdbcType="OTHER" />
+    <result column="SODL21" property="sodl21" jdbcType="OTHER" />
+    <result column="SODL22" property="sodl22" jdbcType="OTHER" />
+    <result column="SODL23" property="sodl23" jdbcType="OTHER" />
+    <result column="SODATE01" property="sodate01" jdbcType="DECIMAL" />
+    <result column="SODATE02" property="sodate02" jdbcType="DECIMAL" />
+    <result column="SODOC2" property="sodoc2" jdbcType="DECIMAL" />
+    <result column="SOROUT" property="sorout" jdbcType="OTHER" />
+    <result column="SOMCU" property="somcu" jdbcType="OTHER" />
+  </resultMap>
+    <!-- 通过订单号到81表中查订单  -->
+   <select id="findAll81Order" resultMap="81ResultMap" parameterType="java.util.Map">
+      select 
+            SON001, SOKCOO, SODOCO, SODCTO,  SO55SE,  SOCPN1,  SOVR01,   SO55LY,  SODL01,   SODL02, SODRQJ, 
+		    SODL24, SODC,  SOSTYE,  SOTYPT,  SO55CY,  SOALPH3,  SOAAID,  SODL03,  SOTPUR,   SOA,    SOALPH, 
+		    SOPH1,  SOADDS, SONAME, SOADDZ,  SONAMEE,  SOCOUN,  SONAMED,  SOADD1, SOALPH2,  SOPH2, 
+		    SOPH3,  SOELM01, SOWHO1, SOELM02, SOWHO2,  SOELM03, SOWHO3,  SOADD2,   SOFIL2,  SOFIL3, 
+		    SOA105, SOAA,   SOAEXP, SOA106,  SON002,  SOSRS2,   SOEDSP,  SOMGTX,   SOD200,  SOUSER,  SOPID, 
+		    SOUPMJ, SOUPMT, SODL20, SODL21,  SODL22,  SODL23,   SODATE01, SODATE02, SODOC2, SOROUT, 
+		    SOMCU
+        from YAJOMS.yianjuF554281 
+        where SOSRS2='0'<!--  and sodoco in('80458785','80458323','80455076','14542996','80458786','80458787') -->
+<!--          GROUP BY  SOVR01  -->
+        <![CDATA[and rownum<=50]]>  
+        
+    </select>
+    
+    <!-- 通过外部订单号到81表中查订单 -->
+     <select id="find81OrderBySovr01" resultMap="81ResultMap" parameterType="string">
+      select 
+            SON001, SOKCOO, SODOCO, SODCTO,  SO55SE,  SOCPN1,  SOVR01,   SO55LY,  SODL01,   SODL02, SODRQJ, 
+            SODL24, SODC,  SOSTYE,  SOTYPT,  SO55CY,  SOALPH3,  SOAAID,  SODL03,  SOTPUR,   SOA,    SOALPH, 
+            SOPH1,  SOADDS, SONAME, SOADDZ,  SONAMEE,  SOCOUN,  SONAMED,  SOADD1, SOALPH2,  SOPH2, 
+            SOPH3,  SOELM01, SOWHO1, SOELM02, SOWHO2,  SOELM03, SOWHO3,  SOADD2,   SOFIL2,  SOFIL3, 
+            SOA105, SOAA,   SOAEXP, SOA106,  SON002,  SOSRS2,   SOEDSP,  SOMGTX,   SOD200,  SOUSER,  SOPID, 
+            SOUPMJ, SOUPMT, SODL20, SODL21,  SODL22,  SODL23,   SODATE01, SODATE02, SODOC2, SOROUT, 
+            SOMCU
+        from YAJOMS.yianjuF554281 
+        where SOSRS2='0'    
+        <if test="SOVR01 !=null">
+            AND SOVR01=#{SOVR01}
+        </if>
+    </select>
+    <!-- <select id="findAll81Order" resultMap="81ResultMap" parameterType="Object">
+      select 
+            SON001, SOKCOO, SODOCO, SODCTO,  SO55SE,  SOCPN1,  SOVR01,   SO55LY,  SODL01,   SODL02, SODRQJ, 
+            SODL24, SODC,  SOSTYE,  SOTYPT,  SO55CY,  SOALPH3,  SOAAID,  SODL03,  SOTPUR,   SOA,    SOALPH, 
+            SOPH1,  SOADDS, SONAME, SOADDZ,  SONAMEE,  SOCOUN,  SONAMED,  SOADD1, SOALPH2,  SOPH2, 
+            SOPH3,  SOELM01, SOWHO1, SOELM02, SOWHO2,  SOELM03, SOWHO3,  SOADD2,   SOFIL2,  SOFIL3, 
+            SOA105, SOAA,   SOAEXP, SOA106,  SON002,  SOSRS2,   SOEDSP,  SOMGTX,   SOD200,  SOUSER,  SOPID, 
+            SOUPMJ, SOUPMT, SODL20, SODL21,  SODL22,  SODL23,   SODATE01, SODATE02, SODOC2, SOROUT, 
+            SOMCU
+        from YAJOMS.yianjuF554281    
+        where SOSRS2='0' and SODOCO IN ('90430099','90430098','90430097','90430096','90430095','90430094')
+       where SOSRS2='0' and SODOCO IN ('90430103','90430101','90430102')
+        <![CDATA[and rownum<=10]]>    
+    </select> -->
+     
+     <resultMap id="82BaseResultMap" type="com.eaju.po.F554282" >
+    <id column="SDN001" property="sdn001" jdbcType="DECIMAL" />
+    <id column="SDDOCO" property="sddoco" jdbcType="DECIMAL" />
+    <id column="SDKCOO" property="sdkcoo" jdbcType="OTHER" />
+    <id column="SDDCTO" property="sddcto" jdbcType="OTHER" />
+    <id column="SDLNID" property="sdlnid" jdbcType="DECIMAL" />
+    <result column="SDITM" property="sditm" jdbcType="DECIMAL" />
+    <result column="SDLITM" property="sdlitm" jdbcType="OTHER" />
+    <result column="SDDSC1" property="sddsc1" jdbcType="OTHER" />
+    <result column="SDUORG" property="sduorg" jdbcType="DECIMAL" />
+    <result column="SDITVL" property="sditvl" jdbcType="DECIMAL" />
+    <result column="SDITWT" property="sditwt" jdbcType="DECIMAL" />
+    <result column="SDLOCN" property="sdlocn" jdbcType="OTHER" />
+    <result column="SDDL01" property="sddl01" jdbcType="OTHER" />
+    <result column="SDPRP1" property="sdprp1" jdbcType="OTHER" />
+    <result column="SDDL02" property="sddl02" jdbcType="OTHER" />
+    <result column="SDDL03" property="sddl03" jdbcType="OTHER" />
+    <result column="SDDL04" property="sddl04" jdbcType="OTHER" />
+    <result column="SDUPRC" property="sduprc" jdbcType="DECIMAL" />
+    <result column="SDAA1" property="sdaa1" jdbcType="DECIMAL" />
+    <result column="SDMCU" property="sdmcu" jdbcType="OTHER" />
+    <result column="SDDC" property="sddc" jdbcType="OTHER" />
+    <result column="SDMCU3" property="sdmcu3" jdbcType="OTHER" />
+    <result column="SDDC20" property="sddc20" jdbcType="OTHER" />
+    <result column="SDLOTN" property="sdlotn" jdbcType="OTHER" />
+    <result column="SDVR01" property="sdvr01" jdbcType="OTHER" />
+    <result column="SDDL20" property="sddl20" jdbcType="OTHER" />
+    <result column="SDREMK" property="sdremk" jdbcType="OTHER" />
+    <result column="SDSTYE" property="sdstye" jdbcType="OTHER" />
+    <result column="SDN002" property="sdn002" jdbcType="DECIMAL" />
+    <result column="SDEDSP" property="sdedsp" jdbcType="OTHER" />
+    <result column="SDUSER" property="sduser" jdbcType="OTHER" />
+    <result column="SDPID" property="sdpid" jdbcType="OTHER" />
+    <result column="SDUPMJ" property="sdupmj" jdbcType="DECIMAL" />
+    <result column="SDUPMT" property="sdupmt" jdbcType="DECIMAL" />
+    <result column="SDDL26" property="sddl26" jdbcType="OTHER" />
+    <result column="SDDL27" property="sddl27" jdbcType="OTHER" />
+    <result column="SDDL28" property="sddl28" jdbcType="OTHER" />
+    <result column="SDDL29" property="sddl29" jdbcType="OTHER" />
+    <result column="SDDATE01" property="sddate01" jdbcType="DECIMAL" />
+    <result column="SDDATE02" property="sddate02" jdbcType="DECIMAL" />
+    <result column="SDLOCNE1" property="sdlocne1" jdbcType="OTHER" />
+    <result column="SDDSC2" property="sddsc2" jdbcType="OTHER" />
+  </resultMap>
+    
+    <select id="findAll82Order" resultMap="82BaseResultMap" parameterType="Object">
+      select 
+         SDN001, SDDOCO, SDKCOO, SDDCTO, SDLNID, SDITM, SDLITM, SDDSC1, SDUORG, SDITVL, SDITWT, 
+    SDLOCN, SDDL01, SDPRP1, SDDL02, SDDL03, SDDL04, SDUPRC, SDAA1, SDMCU, SDDC, SDMCU3, 
+    SDDC20, SDLOTN, SDVR01, SDDL20, SDREMK, SDSTYE, SDN002, SDEDSP, SDUSER, SDPID, SDUPMJ, 
+    SDUPMT, SDDL26, SDDL27, SDDL28, SDDL29, SDDATE01, SDDATE02, SDLOCNE1, SDDSC2
+    from YAJOMS.yianjuF554282 
+    where SDDOCO=#{sodoco}
+    </select>
+    
+    <!-- 逐条跟新  -->
+    <update id="update81OrderStatus" parameterType="java.util.Map">
+        update YAJOMS.yianjuF554281 
+        set SOSRS2=#{code}
+        where sodoco=#{item}
+         
+     </update>
+    
+    
+    <!--  ==================批量更新  -->
+     <update id="update81OrderBySovr01" parameterType="java.util.Map">
+        update YAJOMS.yianjuF554281 
+        set SOSRS2=#{code}
+	    where sodoco in
+	     <foreach item="item" index="index" collection="bigs"
+	      open="(" separator="," close=")">
+	        #{item}
+	     </foreach>
+     </update>
+    
+    
+    
+    
+</mapper>

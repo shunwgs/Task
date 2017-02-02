@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eaju.dao.ReceiveMerchantOrderDao">
+<!-- 美标电视购物订单接入 -->
+   <insert id="insertMerchantOrderDao" parameterType="com.eaju.po.ReceiveMerchantOrderBean">
+        INSERT INTO THIRD_PARTY_MERCHANT(
+            id,
+            business_key,
+            merchant_type,
+            text_content,
+            operate_status,
+            create_time,
+            creator,
+             modify_time,
+              modifier,
+            yn,
+            order_type
+        )
+        VALUES(
+        THIRD_PARTY_MERCHANT_SEQUENCE.nextval,
+        #{businessKey},
+        #{merchantType},
+        #{textContent},
+        #{operateStatus},
+        sysdate,
+        #{creator},
+         sysdate,
+         #{modifier},
+         0,
+         #{orderType}
+        )
+   </insert>
+   
+   <!-- 跟新报文信息 -->
+   <update id="updateMerchantOrderDao">
+           update  THIRD_PARTY_MERCHANT
+           <set> 
+           	  <if test="operateStatus != null">
+           	  	 operate_status =#{operateStatus},
+           	  </if>
+	          <if test="modifier != null">
+	          	 modifier =#{modifier},
+	          </if>
+	          
+	          <if test="modifyTime != null">
+	          	 modify_time=sysdate
+	          </if>
+           </set> 
+           where id=#{id}
+   </update>
+   
+<!--    <resultMap type="com.eaju.po.mb.ReceiveMerchantOrderBean" id="selectMerchantOrderMap"> -->
+   <resultMap type="Map" id="selectMerchantOrderMap">
+        <id column="id" property="id" /> 
+        <result column="business_key" property="businessKey"/>
+        <result column="merchant_type" property="merchantType"/>
+        <result column="text_content" property="textContent" jdbcType="CLOB" javaType="java.lang.String" />
+        <result column="operate_status" property="operateStatus"/>
+        <result column="createtime" property="createTime"/>
+        <result column="creator" property="creator"/>
+        <result column="modifytime" property="modifyTime"/>
+        <result column="modifier" property="modifier"/>
+        <result column="yn" property="yn"/> 
+   </resultMap>
+   
+  <select id="selectMerchantOrder" resultMap="selectMerchantOrderMap" parameterType="Object">
+    select
+     id,
+     business_key,
+     merchant_type,
+     text_content,
+     operate_status,
+     to_char(create_time,'yyyy-MM-dd HH24:mi:ss') createtime, 
+     creator,
+     to_char(modify_time,'yyyy-MM-dd HH24:mi:ss') modifytime, 
+     modifier,
+     yn
+    from
+     THIRD_PARTY_MERCHANT
+     <where>
+	     <if test="businessKey!=null and businessKey!=''">
+	     	business_key =#{businessKey}
+	     	<!-- business_key ='80456672' -->
+	     </if>
+	     <if test="merchantType!=null and merchantType!=''">
+	     	merchant_type =#{merchantType}
+	     </if>
+	     and operate_status in ('1','4')    
+     </where>
+  </select> 
+
+   
+   <!-- 以下是三方商家信息维护表的增删改查 -->
+   <resultMap type="com.eaju.po.MerchantInfo" id="selectMerchantInfoMap">
+     <id column="id" property="id"/>
+     <result column="merchant_token" property="merchantToken"/>
+     <result column="merchant_key" property="merchantKey"/>
+     <result column="merchant_type" property="merchantType"/>
+   </resultMap>
+   
+   <!-- 维护商家信息 -->
+   <insert id="insertMerchantInfo" parameterType="com.eaju.po.MerchantInfo">
+       insert into third_merchant_info(id,merchant_token,merchant_type)
+       values(third_merchant_info_sequence.nextval,
+              #{merchantToken},
+              #{merchantType}
+       )
+   </insert>
+   
+ 
+   
+   <!-- 查询商家信息 -->
+	<select id="selectMerchantInfo" resultMap="selectMerchantInfoMap" parameterType="String">
+		select 
+		    id,
+		    merchant_token,
+		    merchant_type
+		from third_merchant_info
+		where merchant_token =#{token}
+	</select>
+   
+   <!-- 修改商家信息 -->
+  <!--  <update id="updateMerchantInfo">
+      update third_merchant_info
+      set 
+       <if>
+        token !=null && token!=""
+       </if>
+      merchant_token =#{token},
+          merchant_key =#{key},
+          merchant_type = #{type}
+      where id=#{id}
+   </update> -->
+   
+   
+   
+   
+   
+   
+   
+   
+   
+</mapper>
